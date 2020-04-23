@@ -50,5 +50,33 @@ function Sort.insertion(T, direction)
     end
 end
 
+function Sort.shell(T, direction)
+    -- args: T = table to sort; direction = 0/1 ascending/descending  
+
+    -- check 'direction' variable and create a 'compare' function
+    direction = direction or 0  
+    local compare = function (a, b) return a < b end
+    if direction == 1 then
+        compare = function (a, b) return a > b end
+    end    
+    -- get the length of the table
+    local N = #T
+    local h = 1
+    local j = 1
+    while (h < N//3) do h = (3 * h) + 1 end
+    while (h >= 1)
+    do
+        for i = h, N-1 do 
+            j = i
+            while (j >= h and compare(T[j+1], T[j-h+1]))
+            do 
+                T[j+1], T[j-h+1] = T[j-h+1], T[j+1]
+                j = j - h
+            end
+        end
+        h = h//3
+    end
+end
+
 
 return Sort
