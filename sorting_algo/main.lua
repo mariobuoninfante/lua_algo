@@ -25,5 +25,6 @@ local r_table = rand_table_gen()
 print_table(r_table)
 -- sort.selection(r_table, 0)  -- 2nd arg: 0/1 ascending/descending order
 -- sort.insertion(r_table, 1)  -- 2nd arg: 0/1 ascending/descending order
-sort.shell(r_table, 0)  -- 2nd arg: 0/1 ascending/descending order
+-- sort.shell(r_table, 0)  -- 2nd arg: 0/1 ascending/descending order
+sort.mergesort(r_table, 1)  -- 2nd arg: 0/1 ascending/descending order
 print_table(r_table)
